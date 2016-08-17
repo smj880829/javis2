@@ -1,4 +1,3 @@
-var jwt = require('jwt-simple');
 var db = require('./MongoConnector/DAO')
 
 var app_access_token = '706997686105976|0OZJHFqBqsK_7aGn_Mw_3ETQ2dM'
@@ -79,3 +78,5 @@ function check_accessToken_fb(token, callback) {
     });
   });
 };
+
+exports.check_user  = check_user;

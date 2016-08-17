@@ -16,7 +16,7 @@ var app = express();
 // http & socketIO  SET
 var http = require('http').Server(app);
 var socket_http = require('./socketio_http')(http);
-var mysocket_and = require('./socketio_android');
+//var mysocket_and = require('./socketio_android');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

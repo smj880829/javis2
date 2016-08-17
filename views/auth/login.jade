@@ -1,0 +1,24 @@
+extends layout_login
+
+block content
+    .wrapper
+      .container
+        h1#title= title
+        form.form(name='loginform',id='loginform')
+          input(type='text', placeholder='Username', name='email',ng-model='email')
+          input(type='password', placeholder='Password', name='password',ng-model='password')
+          button#login-button(ng-click='login()') Login
+          br
+          button#fb-button(ng-click='FBlogin()') FaceBook Login
+          br
+    ul.bg-bubbles
+      li
+      li
+      li
+      li
+      li
+      li
+      li
+      li
+      li
+      li
