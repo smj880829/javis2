@@ -6,8 +6,8 @@ block content
     button.btn.btn-default(ng-click='start()') start
     button.btn.btn-default(ng-click='stop()') stop
     button.btn.btn-default(ng-click='reset()') reset
-    .progress
-      .progress-bar.progress-bar-striped.active(role='progressbar', aria-valuenow='val', aria-valuemin='0', aria-valuemax='100', ng-style='{"width": myW}')
+    .progress(style='width: 80%')
+      .progress-bar.progress-bar-striped.active(ng-class='others',role='progressbar', aria-valuenow='val', aria-valuemin='0', aria-valuemax='100', ng-style='{"width": myW}')
         | {{ val }}
 
     .progress

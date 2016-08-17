@@ -15,6 +15,8 @@ app.controller('test',
 ['$scope', '$window','$http','socket','$log','$anchorScroll','$location','$rootScope','$cookies','$interval',
  function($scope, $window,$http,socket,$log,$anchorScroll,$location,$rootScope,$cookies,$interval) {
 
+   $scope.others = 'progress-bar-success'
+
    var flg
    $scope.start = function() {
       if ( angular.isDefined(flg) ) return;
