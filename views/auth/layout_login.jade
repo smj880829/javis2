@@ -1,0 +1,33 @@
+doctype html
+html(ng-app='loginApp')
+  head
+    title 어서와용
+    script(type='text/javascript', src='https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js')
+    script(type='text/javascript', src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js')
+    script(type='text/javascript', src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-cookies.js')
+    script(src='https://cdn.socket.io/socket.io-1.4.5.js')
+    script(type='text/javascript', src='/javascripts/loginApp.js')
+    link(rel='stylesheet', href='/stylesheets/login.css')
+    script(type='text/javascript').
+      function next(){
+      $('form').attr({action:'/login', method:'post'}).submit();
+      }
+      $(document).ready(function() {
+      $("#login-button").click(function(event){
+      event.preventDefault();
+      $("#title").html("Login.....");
+      $('form').fadeOut(500);
+      $('.wrapper').addClass('form-success');
+      // setTimeout("next()", 5000);
+      });
+
+      $("#fb-button").click(function(event){
+      event.preventDefault();
+      $("#title").html("Login.....");
+      $('form').fadeOut(500);
+      $('.wrapper').addClass('form-success');
+
+      });
+      });
+  body(ng-controller='loginCtl')
+    block content
