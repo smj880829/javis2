@@ -16,19 +16,22 @@ app.controller('test',
  function($scope, $window,$http,socket,$log,$anchorScroll,$location,$rootScope,$cookies,$interval) {
 
    $scope.others = 'progress-bar-success'
-
-   var flg
+  var tt2 = 0;
+   var flg;
    $scope.start = function() {
       if ( angular.isDefined(flg) ) return;
 
         flg = $interval(function() {
-          if ($rootScope.val < 100) {
-            $rootScope.val++;
-             $scope.myW = $rootScope.val +'%';
+          if (tt2 < 100) {
+            var no = new Date();
+            var tt =( $rootScope.unitStatus[0].end.getTime() - no.getTime())/1000
+            tt2 = (1-(tt / $rootScope.unitStatus[0].val)) * 100;
+            $rootScope.val += 10 ;
+             $scope.myW = tt2 +'%';
           } else {
             $scope.stop();
           }
-        }, 1000);
+        }, 1000,0,true);
    }
 
    $scope.stop = function() {
@@ -42,7 +45,7 @@ app.controller('test',
       $rootScope.val = 0
     };
 
-
+    $scope.start();
 
 }]
 )
@@ -51,6 +54,25 @@ app.controller('test',
   app.run(['$rootScope', '$window','$http','$location',
   function($rootScope, $window,$http,$location) {
     $rootScope.val = 0;
+
+    $rootScope.unitStatus  = new Array();
+
+    var ti = new Date();
+    var se = ti.getSeconds() + 20;
+    ti.setSeconds(ti.getSeconds()-10);
+    var ti2 = new Date();
+    ti2.setSeconds(se);
+    var va = (ti2.getTime() - ti.getTime())/1000
+
+    var no = new Date();
+    var tt =( $rootScope.unitStatus[0].end.getTime() - no.getTime())/1000
+    var tt2 = (1-(tt / $rootScope.unitStatus[0].val)) * 100;
+    $rootScope.val += 10 ;
+     $scope.myW = tt2 +'%';
+
+    $rootScope.unitStatus[0] = {start: ti ,end: ti2,val:va}
+
+
 
   }]);
 
@@ -88,5 +110,12 @@ app.controller('test',
                     event.preventDefault();
                 }
             });
+        };
+    })
+
+    app.directive('progressBar', function () {
+        return {
+          restrict: 'E',
+          templateUrl: '/game/module/progressbar'
         };
     })

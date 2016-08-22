@@ -1,0 +1,9 @@
+div.container
+  div.row
+    div.progress.col-md-11.col-xs-10(style='padding-right:0px;padding-left:0px')
+      div.progress-bar.progress-bar-info.progress-bar-striped.active(ng-class='others',role='progressbar', aria-valuenow='0', aria-valuemin='0', aria-valuemax='100', ng-style='{"width": myW}')
+        | {{ myW }}%
+    &nbsp
+    span.glyphicon.glyphicon.glyphicon-ok(aria-hidden='true',onclick='alert()',style="cursor:pointer")
+    &nbsp 
+    span.glyphicon.glyphicon-remove(aria-hidden='true')

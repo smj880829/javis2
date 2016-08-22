@@ -1,0 +1,26 @@
+$scope.start = function() {
+   if ( angular.isDefined(flg) ) return;
+
+     flg = $interval(function() {
+       if (tt2 < 100) {
+         var no = new Date();
+         var tt =( $rootScope.unitStatus[0].end.getTime() - no.getTime())/1000
+         tt2 = (1-(tt / $rootScope.unitStatus[0].val)) * 100;
+         $rootScope.val += 10 ;
+          $scope.myW = tt2 +'%';
+       } else {
+         $scope.stop();
+       }
+     }, 1000,0,true);
+}
+
+$scope.stop = function() {
+   if (angular.isDefined(flg)) {
+     $interval.cancel(flg);
+     flg = undefined;
+   }
+ };
+
+ $scope.reset = function() {
+   $rootScope.val = 0
+ };

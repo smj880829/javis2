@@ -22,4 +22,8 @@ router.get('/', function(req, res, next) {
   res.render('./game/index');
 });
 
+router.get('/module/progressbar', function(req, res, next) {
+  res.render('./game/module/progress-bar');
+});
+
 module.exports = router;
