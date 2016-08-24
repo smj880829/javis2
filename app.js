@@ -32,7 +32,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-var token_ctl = require('../controller_token')
+var token_ctl = require('./controller_token')
 
 function authChecker(req, res, next) {
   if(req.cookies.token != null){
