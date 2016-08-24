@@ -54,7 +54,7 @@ app.use('/auth', auth);
 app.use('/game', game);
 app.use('/stream', stream);
 
-app.use('/files', authChecker);
+app.get('/files', authChecker);
 
 
 
