@@ -18,7 +18,7 @@ router.get('/down', function(req, res, next) {
   res.render('./stream/down');
 });
 
-route.post('/down', function(req, res, next) {
+router.post('/down', function(req, res, next) {
   var WebTorrent = require('webtorrent')
 
   var client = new WebTorrent()
