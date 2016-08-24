@@ -15,10 +15,10 @@ router.get('/down', function(req, res, next) {
 
   var client = new WebTorrent()
 
-  var magnetURI = 'magnet:?xt=urn:btih:87FE6031EC4C0EBFD526A51E9E08863FF4856BE7&dn=FHD-star-706.mp4&tr=http%3a%2f%2fopen.nyaatorrents.info%3a6544%2fannounce&tr=udp%3a%2f%2fopen.demonii.com%3a1337%2fannounce&tr=udp%3a%2f%2ftracker.openbittorrent.com%2fannounce&tr=udp%3a%2f%2ftracker.openbittorrent.com%3a80%2fannounce&tr=udp%3a%2f%2f9.rarbg.com%3a2710%2fannounce&tr=udp%3a%2f%2f9.rarbg.me%3a2710%2fannounce&tr=http%3a%2f%2f163.172.32.53%3a8000%2fannounce&tr=udp%3a%2f%2f163.172.32.53%3a8000&tr=udp%3a%2f%2fopen.nyaatorrents.info%3a6544%2fannounce'
+  var magnetURI = 'magnet:?xt=urn:btih:281AC5D97DD79EAEA4A8262B6C50DE5850F485EA&dn=Aino%20%20Miyuu%20XVSR-133.mp4&tr=udp%3a%2f%2ftracker.openbittorrent.com%3a80%2fannounce&tr=udp%3a%2f%2ftracker.opentrackr.org%3a1337%2fannounce&tr=udp%3a%2f%2f9.rarbg.com%3a2740%2fannounce&tr=udp%3a%2f%2f9.rarbg.me%3a2780%2fannounce&tr=http%3a%2f%2f163.172.32.53%3a8000%2fannounce&tr=udp%3a%2f%2f163.172.32.53%3a8000&tr=udp%3a%2f%2fopen.nyaatorrents.info%3a6544%2fannounce'
 
   res.render('./stream/index',{title:'succes'});
-  client.add(magnetURI, { path: './public/files' }, function (torrent) {
+  client.add(magnetURI, { path: './files' }, function (torrent) {
     console.log('start')
     torrent.on('done', function () {
       console.log('torrent download finished')
