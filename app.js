@@ -77,6 +77,11 @@ app.use(function(err, req, res, next) {
   });
 });
 
+app.use(function (req, res, next) {
+  console.log('Time:', Date.now());
+  next();
+});
+
 http.listen(80);
 
 
