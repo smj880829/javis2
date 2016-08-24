@@ -10,6 +10,10 @@ router.get('/show', function(req, res, next) {
   res.render('./stream/show');
 });
 
+router.get('/show2', function(req, res, next) {
+  res.render('./stream/show2');
+});
+/*
 router.get('/down', function(req, res, next) {
     var WebTorrent = require('webtorrent')
 
@@ -26,6 +30,6 @@ router.get('/down', function(req, res, next) {
     })
   })
 });
-
+*/
 
 module.exports = router;
