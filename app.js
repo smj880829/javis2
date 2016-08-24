@@ -54,7 +54,7 @@ app.use(function(req, res, next) {
 });
 
 app.use(function(req, res, next) {
-  if (req.url == "/stream/show") {
+  if (req.url == "/files/FHD-star-706.mp4") {
     console.log("show!!!!")
       var file = path.resolve(__dirname,"./files/FHD-star-706.mp4");
       fs.stat(file, function(err, stats) {
