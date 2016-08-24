@@ -43,12 +43,12 @@ function authChecker(req, res, next) {
           }
         })
   }else {
-        res.redirect('/auth/login')
+        res.redirect('auth/login')
   }
 
 }
 
-app.use('/files', authChecker);
+app.use('/files', authChecker, express.static(__dirname + '/files'));
 
 
 
