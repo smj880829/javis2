@@ -42,7 +42,6 @@ router.get('/show', function(req, res, next) {
         res.end(err);
       });
   });
-}
 
   res.render('./stream/show');
 });
