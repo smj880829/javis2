@@ -32,11 +32,31 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+var token_ctl = require('../controller_token')
+
+function authChecker(req, res, next) {
+  if(req.cookies.token != null){
+        token_ctl.checkToken(req.cookies.token,function(re){
+          if(re){
+            next();
+          }else{
+            res.redirect('./auth/login')
+          }
+        })
+  }else {
+        res.redirect('./auth/login')
+  }
+}
+
 app.use('/', routes);
 app.use('/users', users);
 app.use('/auth', auth);
 app.use('/game', game);
 app.use('/stream', stream);
+
+app.use('/files', authChecker);
+
+
 
 app.use(function(req, res, next) {
     //모든 도메인의 요청을 허용하지 않으면 웹브라우저에서 CORS 에러를 발생시킨다.

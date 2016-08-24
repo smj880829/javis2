@@ -48,6 +48,11 @@ function check_user(callback){
   var check = false;
   switch (this.method) {
     case 'nomal'    :
+                if(this.email =='123' && this.pass == '123'){
+                  callback(true);
+                }else {
+                  callback(false);
+                }
                  break;
     case 'facebook'   :
                   check_accessToken_fb(this.externaltoken,function(re){

@@ -6,8 +6,10 @@ function($scope, $window,$rootScope,$document,$http,$cookies) {
   $scope.accessToken ='';
   $scope.id = ''
   $scope.name = ''
+
   $scope.login = function() {
     $scope.loginMethod = 'nomal';
+    $scope.loginhttp();
   }
 
 
