@@ -9,11 +9,11 @@ function authChecker(req, res, next) {
           if(re){
             next();
           }else{
-            res.redirect('./auth/login')
+            res.redirect('/auth/login')
           }
         })
   }else {
-        res.redirect('./auth/login')
+        res.redirect('/auth/login')
   }
 }
 
