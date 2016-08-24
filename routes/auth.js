@@ -13,6 +13,11 @@ router.get('/login', function(req, res, next) {
   res.render('./auth/login', { title: 'WELCOME' });
 });
 
+router.get('/logintoken', function(req, res, next) {
+  res.cookie('token',token,{expires: new Date(Date.now() + 600000),httpOnly: true,maxAge:600000})
+  res.redirect('/');
+});
+
 router.post('/login', function(req, res, next) {
   var auth = new authorization()
     auth.method(req.body.loginmethod)
