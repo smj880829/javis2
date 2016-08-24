@@ -66,7 +66,7 @@ function($scope, $window,$rootScope,$document,$http,$cookies) {
   $scope.loginhttp = function() {
     $http({
     method: 'POST' ,
-    url: '/login',
+    url: '/auth/login',
     data: $.param({
         loginmethod: $scope.loginMethod,
         accesstoken: $scope.accessToken,
