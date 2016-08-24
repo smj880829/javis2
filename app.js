@@ -39,16 +39,16 @@ function authChecker(req, res, next) {
           if(re){
             next();
           }else{
-            res.redirect('/login')
+            res.redirect('/auth/login')
           }
         })
   }else {
-        res.redirect('/login')
+        res.redirect('/auth/login')
   }
 
 }
 
-app.use('/files', authChecker, express.static(__dirname + '/files'));
+app.use('/files', authChecker);
 
 
 
