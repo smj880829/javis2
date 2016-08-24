@@ -43,7 +43,7 @@ function authChecker(req, res, next) {
           }
         })
   }else {
-        res.redirect('auth/login')
+        res.redirect('/auth/login')
   }
 
 }
