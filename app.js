@@ -48,7 +48,7 @@ function authChecker(req, res, next) {
 
 }
 
-app.use('/files', authChecker, express.static(__dirname + 'files'));
+app.use('/files', authChecker, express.static(path.join(__dirname, 'files')));
 
 app.use('/', routes);
 app.use('/users', users);
