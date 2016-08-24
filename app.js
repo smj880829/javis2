@@ -33,6 +33,24 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 var token_ctl = require('./controller_token')
+function authChecker(req, res, next) {
+  if(req.cookies.token != null){
+        token_ctl.checkToken(req.cookies.token,function(re){
+          if(re){
+            next();
+          }else{
+            res.redirect('/login')
+          }
+        })
+  }else {
+        res.redirect('/login')
+  }
+
+}
+
+app.use('/files', authChecker, express.static(__dirname + '/files'));
+
+
 
 
 app.use('/', routes);
@@ -40,20 +58,6 @@ app.use('/users', users);
 app.use('/auth', auth);
 app.use('/game', game);
 app.use('/stream', stream);
-
-app.use('/files/*', function(req, res, next){
-  if(req.cookies.token != null){
-        token_ctl.checkToken(req.cookies.token,function(re){
-          if(re){
-            next();
-          }else{
-            res.redirect('/auth/login')
-          }
-        })
-  }else {
-        res.redirect('/auth/login')
-  }
-});
 
 
 
