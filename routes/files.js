@@ -18,7 +18,7 @@ function authChecker(req, res, next) {
 }
 
 /* GET home page. */
-router.get('/*',authChecker, function(req, res, next) {
+router.get('*',authChecker, function(req, res, next) {
 
 });
 
