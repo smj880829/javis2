@@ -41,7 +41,7 @@ app.use('/auth', auth);
 app.use('/game', game);
 app.use('/stream', stream);
 
-app.get('/files*', function(req, res, next){
+app.use('/files', function(req, res, next){
   if(req.cookies.token != null){
         token_ctl.checkToken(req.cookies.token,function(re){
           if(re){
