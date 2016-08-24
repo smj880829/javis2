@@ -12,6 +12,7 @@ var users = require('./routes/users');
 var auth = require('./routes/auth');
 var game = require('./routes/game');
 var stream = require('./routes/stream');
+var files = require('./routes/files');
 
 var app = express();
 
@@ -32,29 +33,14 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-var token_ctl = require('./controller_token')
 
-function authChecker(req, res, next) {
-  if(req.cookies.token != null){
-        token_ctl.checkToken(req.cookies.token,function(re){
-          if(re){
-            next();
-          }else{
-            res.redirect('./auth/login')
-          }
-        })
-  }else {
-        res.redirect('./auth/login')
-  }
-}
 
 app.use('/', routes);
 app.use('/users', users);
 app.use('/auth', auth);
 app.use('/game', game);
 app.use('/stream', stream);
-
-app.get('/files', authChecker);
+app.use('/files', files);
 
 
 
