@@ -64,13 +64,15 @@ app.controller('test',
     ti2.setSeconds(se);
     var va = (ti2.getTime() - ti.getTime())/1000
 
+    $rootScope.unitStatus[0] = {start: ti ,end: ti2,val:va}
+
     var no = new Date();
     var tt =( $rootScope.unitStatus[0].end.getTime() - no.getTime())/1000
     var tt2 = (1-(tt / $rootScope.unitStatus[0].val)) * 100;
     $rootScope.val += 10 ;
      $scope.myW = tt2 +'%';
 
-    $rootScope.unitStatus[0] = {start: ti ,end: ti2,val:va}
+
 
 
 
