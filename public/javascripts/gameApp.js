@@ -51,8 +51,8 @@ app.controller('test',
 )
 
 
-  app.run(['$rootScope', '$window','$http','$location',
-  function($rootScope, $window,$http,$location) {
+  app.run(['$rootScope', '$window','$http','$location','$scope',
+  function($rootScope, $window,$http,$location,$scope) {
     $rootScope.val = 0;
 
     $rootScope.unitStatus  = new Array();
