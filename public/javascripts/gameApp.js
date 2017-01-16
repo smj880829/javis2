@@ -77,7 +77,7 @@ app.controller('test',
   }]);
 
   app.factory('socket', function ($rootScope) {
-    var socket = io.connect('http://localhost/');
+    var socket = io.connect('http://52.78.102.96/');
     return {
       on: function (eventName, callback) {
         socket.on(eventName, function () {
